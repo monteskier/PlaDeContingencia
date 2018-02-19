@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
   <div class="tipus">
     <h3 class="title_col">Criticitat Baixa</h3>
@@ -8,7 +9,7 @@
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <ul class="collapse" id="{{element.id}}">
           {% for child in element.actiu_set.all %}
-            <li class="childs"> {{child.nomActiu}}
+            <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
                {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
                 {% elif child.estat == "Inoperatiu" %}
@@ -28,7 +29,7 @@
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <ul id="{{element.id}}" class="collapse">
           {% for child in element.actiu_set.all %}
-            <li class="childs"> {{child.nomActiu}}
+            <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
               {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
               {% elif child.estat == "Inoperatiu" %}
@@ -48,7 +49,7 @@
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <ul  id="{{element.id}}" class="collapse">
           {% for child in element.actiu_set.all %}
-            <li class="childs" id="{{element.id}}" class="collapse"> {{child.nomActiu}}
+            <li class="childs" data-id={{child.id}} class="collapse"> {{child.nomActiu}}
               {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
               {% elif child.estat == "Inoperatiu" %}
@@ -60,29 +61,9 @@
       </span>
     {% endfor %}
   </div>
+<div id="seguiment"></div>
 {% endblock %}
 {% block scripts %}
-  <script>
-    function explorar(){
-      $(".item span").each(function(){
-        var $span = $(this);
+  <script src="{% static 'js/getSeguiments.js' %}"></script>
 
-        if($span.data("error")=="True") {
-          $(this).parents(".item").css( "background-color", "#E60026");
-          //$(this).parents(".item").addClass("parpadea")
-          $(this).parent().addClass("parpadea");
-          $(this).addClass("parpadea");
-          //$(this).parent(".item").css( "background-color", "red");
-        }
-      })
-    }
-
-    $(document).ready(function(){
-      explorar();
-      $(".item").click(function(e){
-        console.log($(this).data("id"));
-      });
-  });
-
-  </script>
 {% endblock %}

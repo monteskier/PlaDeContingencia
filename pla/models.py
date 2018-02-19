@@ -32,6 +32,7 @@ class Actiu(models.Model):
 class Seguiment(models.Model):
     data_creacio = models.DateTimeField(auto_now = True)
     descripcio = models.CharField(max_length=250)
+    text = models.TextField()
     actiu = models.ForeignKey(Actiu, on_delete = models.CASCADE)
     servei = models.ForeignKey(Servei, on_delete = models.CASCADE)
 

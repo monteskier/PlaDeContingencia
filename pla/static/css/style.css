@@ -52,7 +52,6 @@ h1 a {
   font-weight: normal;
 }
 .parpadea {
-
   animation-name: parpadeo;
   animation-duration: 1s;
   animation-timing-function: linear;
@@ -63,7 +62,23 @@ h1 a {
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
 }
-
+.text{
+  text-align: justify;
+  padding: 5px;
+}
+#seguiment{
+  -webkit-animation-name:emerger;
+  -webkit-animation-duration: 1s;
+  animation-name:emerger;
+  animation-duration: 1s;
+  background-color:#01445A;
+  color:white;
+  display: block;
+  float:right;
+  width: 400px;
+  z-index: 100;
+}
+/*AQUEST ES EL EFECTE DEL TEXT DE QUAN ALGO FALLA */
 @-moz-keyframes parpadeo{
   0% { opacity: 1.0; }
   50% { opacity: 0.0; }
@@ -80,4 +95,21 @@ h1 a {
   0% { opacity: 1.0; }
   50% { opacity: 0.0; }
   100% { opacity: 1.0; }
+}
+/*EFECTE DEL SEGUIMENTS QUE SURT DEL NO RES*/
+@-webkit-keyframes emerger{
+  0%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-moz-keyframes emerger{
+  0%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@-o-keyframes emerger{
+  0%   { opacity: 0;}
+  100% { opacity: 1;}
+}
+@keyframes emerger{
+  0%   { opacity: 0;}
+  100% { opacity: 1;}
 }
