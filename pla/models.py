@@ -20,17 +20,17 @@ class Ips(models.Model):
         return(self.address);
 
 class Actiu(models.Model):
-    nomActiu = models.CharField(max_length=50);
-    descripcio = models.CharField(max_length=200);
-    data_creacio = models.DateTimeField(auto_now = True, null=True, blank=True);
-    data_error = models.DateTimeField(null=True, blank=True);
+    nomActiu = models.CharField(max_length=50)
+    descripcio = models.CharField(max_length=200)
+    data_creacio = models.DateTimeField(auto_now = True, null=True, blank=True)
+    data_error = models.DateTimeField(null=True, blank=True)
     ESTAT_CHOICES = (
         ('Operatiu','Operatiu'),
         ('Inoperatiu','Inoperatiu'),
     )
     estat = models.CharField(max_length = 25, choices = ESTAT_CHOICES, default = 'Operatiu')
-    servei = models.ManyToManyField(Servei);
-    ip = models.ForeignKey(Ips, on_delete=models.CASCADE)
+    servei = models.ManyToManyField(Servei)
+    ip = models.ManyToManyField(Ips)
 
 
     def __str__(self):
