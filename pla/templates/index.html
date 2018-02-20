@@ -7,6 +7,7 @@
       <span class="item"  data-id="{{element.id}}">
         <p>{{ element.nomServei }}</p>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
+        <button type="button" class="btn btn-warning"  class=".btnTest" value="{{element.id}}">test</button>
         <ul class="collapse" id="{{element.id}}">
           {% for child in element.actiu_set.all %}
             <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
@@ -27,6 +28,7 @@
       <span class="item" data-id="{{element.id}}">
         <p>{{ element.nomServei }}</p>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
+        <button type="button" class="btn btn-warning" class=".btnTest" value="{{element.id}}">test</button>
         <ul id="{{element.id}}" class="collapse">
           {% for child in element.actiu_set.all %}
             <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
@@ -47,6 +49,7 @@
       <span class="item" data-id="{{element.id}}">
         <p>{{ element.nomServei }}</p>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
+        <button type="button" class="btn btn-warning" class=".btnTest" value="{{element.id}}">test</button>
         <ul  id="{{element.id}}" class="collapse">
           {% for child in element.actiu_set.all %}
             <li class="childs" data-id={{child.id}} class="collapse"> {{child.nomActiu}}
@@ -64,6 +67,7 @@
 <div id="seguiment"></div>
 {% endblock %}
 {% block scripts %}
+  <script src="{% static 'js/test.js' %}"></script>
   <script src="{% static 'js/getSeguiments.js' %}"></script>
 
 {% endblock %}

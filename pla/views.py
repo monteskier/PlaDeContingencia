@@ -1,4 +1,4 @@
-import json
+import json, os
 from django.core import serializers
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
@@ -22,3 +22,16 @@ def getSeguimentsActiu(request, actiu_id):
     return HttpResponse("Has selccionat el Servei = " % actiu_id)
     actiu = get_object_or_404(Question, actiu_id)
     return(actiu);
+
+def test(request, servei_id):
+    servei = Servei.objects.get(pk=servei_id);
+    actius = Servei.actiu_set.all();
+    for actiu in actius:
+        for ip in actiu.ips_set.all():
+            response = os.system("ping -c 1 "+ ip)
+            if(response == 0):
+                actiu.estat="Operatiu"
+                actiu.save()
+            else:
+                actiu.estat="Inoperatiu"
+                actiu.save()
