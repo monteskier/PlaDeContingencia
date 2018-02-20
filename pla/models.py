@@ -14,6 +14,11 @@ class Servei(models.Model):
     def __str__(self):
         return str(self.nomServei)
 
+class Ips(models.Model):
+    address = models.CharField(max_length = 15)
+    def __str__(self):
+        return(self.address);
+
 class Actiu(models.Model):
     nomActiu = models.CharField(max_length=50);
     descripcio = models.CharField(max_length=200);
@@ -25,6 +30,8 @@ class Actiu(models.Model):
     )
     estat = models.CharField(max_length = 25, choices = ESTAT_CHOICES, default = 'Operatiu')
     servei = models.ManyToManyField(Servei);
+    ip = models.ForeignKey(Ips, on_delete=models.CASCADE)
+
 
     def __str__(self):
         return str(self.nomActiu)
