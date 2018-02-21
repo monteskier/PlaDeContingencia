@@ -78,6 +78,18 @@ h1 a {
   width: 400px;
   z-index: 100;
 }
+/*.load{
+  animation:test 1.5s;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  -webkit-animation-name:test;
+ -webkit-animation-duration: 1s;
+ -webkit-animation-timing-function: linear;
+ -webkit-animation-iteration-count: infinite;
+
+}*/
 /*AQUEST ES EL EFECTE DEL TEXT DE QUAN ALGO FALLA */
 @-moz-keyframes parpadeo{
   0% { opacity: 1.0; }
@@ -113,3 +125,21 @@ h1 a {
   0%   { opacity: 0;}
   100% { opacity: 1;}
 }
+
+/*Efecte quan es fa test a cuasevol servei
+@-webkit-keyframes test{
+  0%   { opacity: 1;}
+  100% { opacity: 0.5;}
+}
+@-moz-keyframes test{
+  0%   { opacity: 1;}
+  100% { opacity: 0.5;}
+}
+@-o-keyframes test{
+  0%   { opacity: 1;}
+  100% { opacity: 0.5;}
+}
+@keyframes test{
+  0%   { opacity: 1;}
+  100% { opacity: 0.5;}
+}*/
