@@ -32,7 +32,7 @@ def test(request, servei_id):
 
     for actiu in actius:
         for ip in actiu.ip.all():
-            response = os.system("ping -c 4"+ ip.address)
+            response = os.system("ping -c 2 " + ip.address)
             if(response == 0):
                 actiu.estat="Operatiu"
                 actiu.save()
