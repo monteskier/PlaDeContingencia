@@ -32,7 +32,7 @@ def test(request, servei_id):
 
     for actiu in actius:
         for ip in actiu.ip.all():
-            response = os.system("ping "+ ip.address)
+            response = os.system("ping -c 1"+ ip.address)
             if(response == 0):
                 actiu.estat="Operatiu"
                 actiu.save()
@@ -41,7 +41,7 @@ def test(request, servei_id):
                 actiu.estat="Inoperatiu"
                 actiu.save()
                 ino.append(actiu.nomActiu)
-            
+
         data['Operatius']=ope;
         data['Inoperatius']=ino;
 
