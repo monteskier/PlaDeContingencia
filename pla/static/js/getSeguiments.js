@@ -9,7 +9,7 @@ function explorar_errors(){
       $(this).addClass("parpadea");
       //$(this).parent(".item").css( "background-color", "red");
     }
-  })
+  });
 }
 function closeSeguiment(){
   $("#seguiment").hide();
@@ -18,7 +18,9 @@ function closeSeguiment(){
 $(document).ready(function(){
   closeSeguiment();
   explorar_errors();
-  $(".item").click(function(e){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
+  function getSeguiment(e){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
+    e.preventDefault();
+    e.stopPropagation();
     var pk = $(this).data("id");
     $.ajax({
       type:"GET",
@@ -40,9 +42,9 @@ $(document).ready(function(){
         $("#seguiment").append("<button class='btn btn-danger center-block' onclick='closeSeguiment()'>Tancar</button>");
       }
     });
-  });
+  }
   $(".item .childs").click(function(e){
-    
+
     e.stopPropagation();
   });//Aixo es produeix quan es clica un Item, obtenim el id del Item
 });

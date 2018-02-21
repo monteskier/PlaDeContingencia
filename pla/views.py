@@ -26,12 +26,18 @@ def getSeguimentsActiu(request, actiu_id):
 def test(request, servei_id):
     servei = Servei.objects.get(pk=servei_id);
     actius = Servei.actiu_set.all();
+    data = {}
+
     for actiu in actius:
         for ip in actiu.ips_set.all():
             response = os.system("ping -c 1 "+ ip)
             if(response == 0):
                 actiu.estat="Operatiu"
                 actiu.save()
+                data["Operatius"].append(actiu.nomActiu)
             else:
                 actiu.estat="Inoperatiu"
                 actiu.save()
+                data["Inoperatius"].append(actiu.nomActiu)
+
+    return HttpResponse(json.dumps(data))
