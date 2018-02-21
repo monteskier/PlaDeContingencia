@@ -13,9 +13,9 @@ function explorar_errors(){
 }
 function closeSeguiment(){
   $("#seguiment").hide();
-  console.log("deveria no verse");
 }
 $(document).ready(function(){
+  closeLoading(true);
   closeSeguiment();
   explorar_errors();
   function getSeguiment(e){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
@@ -28,7 +28,6 @@ $(document).ready(function(){
       data:$(this).data("id"),
       success:function(data){
         data = JSON.parse(data);
-
         $("#seguiment").empty();
         $("#seguiment").show();
 
