@@ -14,34 +14,36 @@ function explorar_errors(){
 function closeSeguiment(){
   $("#seguiment").hide();
 }
+function getSeguiment(e){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
+  e.preventDefault();
+  e.stopPropagation();
+  var pk = $(this).data("id");
+  $.ajax({
+    type:"GET",
+    url:pk+"/getSeguimentsServei",
+    data:$(this).data("id"),
+    success:function(data){
+      data = JSON.parse(data);
+      $("#seguiment").empty();
+      $("#seguiment").show();
+
+      $.each(data,function(i, item){
+        $("#seguiment").append("<h4><strong>"+item.fields.descripcio+"</strong></h4>"+item.fields.data_creacio);
+        $("#seguiment").append("<br>");
+        $("#seguiment").append("<p class='text'>"+item.fields.text+"</p>");
+
+      });
+
+      $("#seguiment").append("<button class='btn btn-danger center-block' onclick='closeSeguiment()'>Tancar</button>");
+    }
+  });
+}
+
 $(document).ready(function(){
   closeLoading(true);
   closeSeguiment();
   explorar_errors();
-  function getSeguiment(e){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
-    e.preventDefault();
-    e.stopPropagation();
-    var pk = $(this).data("id");
-    $.ajax({
-      type:"GET",
-      url:pk+"/getSeguimentsServei",
-      data:$(this).data("id"),
-      success:function(data){
-        data = JSON.parse(data);
-        $("#seguiment").empty();
-        $("#seguiment").show();
 
-        $.each(data,function(i, item){
-          $("#seguiment").append("<h4><strong>"+item.fields.descripcio+"</strong></h4>"+item.fields.data_creacio);
-          $("#seguiment").append("<br>");
-          $("#seguiment").append("<p class='text'>"+item.fields.text+"</p>");
-
-        });
-
-        $("#seguiment").append("<button class='btn btn-danger center-block' onclick='closeSeguiment()'>Tancar</button>");
-      }
-    });
-  }
   $(".item .childs").click(function(e){
 
     e.stopPropagation();
