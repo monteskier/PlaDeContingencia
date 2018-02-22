@@ -39,6 +39,8 @@ h1 a {
   transform:font-weight 0.5s;
   margin-bottom: 5px;
   font-weight: bold;
+} .item p{
+  cursor: pointer;
 }
 /*.item:hover{
   text-decoration-line: underline;
