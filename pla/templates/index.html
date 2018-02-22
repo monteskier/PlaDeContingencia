@@ -4,7 +4,7 @@
   <div class="tipus">
     <h3 class="title_col">Criticitat Baixa</h3>
     {% for element in sc_baixa %}
-      <span class="item" onclick='getSeguiment({{element.id}})'  data-id="{{element.id}}">
+      <span class="item" data-id="{{element.id}}">
         <p onclick='getSeguiment({{element.id}})'>{{ element.nomServei }}</p>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <button type="button" class="btn btn-warning"  class=".btnTest" onclick="clieckTest({{element.id}})" value="{{element.id}}">test</button>
