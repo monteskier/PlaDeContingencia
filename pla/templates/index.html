@@ -4,7 +4,7 @@
   <div class="tipus">
     <h3 class="title_col">Criticitat Baixa</h3>
     {% for element in sc_baixa %}
-      <span class="item" onclick='getSeguiment()'  data-id="{{element.id}}">
+      <span class="item" onclick='getSeguiment({{element.id}})'  data-id="{{element.id}}">
         <p>{{ element.nomServei }}</p>
         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <button type="button" class="btn btn-warning"  class=".btnTest" onclick="clieckTest({{element.id}})" value="{{element.id}}">test</button>
@@ -28,7 +28,7 @@
     {% for element in sc_mitjana %}
       <span class="item" data-id="{{element.id}}">
         <p>{{ element.nomServei }}</p>
-        <button type="button" onclick='getSeguiment()' class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
+        <button type="button" onclick='getSeguiment({{element.id}})' class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <button type="button" class="btn btn-warning" class=".btnTest" onclick="clieckTest({{element.id}})" value="{{element.id}}">test</button>
         <span class="loading"><img src="{% static 'images/ajax-loader.gif' %}"  width="50px" height="50px" /></span>
         <ul id="{{element.id}}" class="collapse">
@@ -50,7 +50,7 @@
     {% for element in sc_alta %}
       <span class="item" data-id="{{element.id}}">
         <p>{{ element.nomServei }}</p>
-        <button type="button" onclick='getSeguiment()' class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
+        <button type="button" onclick='getSeguiment({{element.id}})' class="btn btn-info" data-toggle="collapse" data-target="#{{element.id}}">actius</button>
         <button type="button" class="btn btn-warning" onclick="clieckTest({{element.id}})" class=".btnTest" value="{{element.id}}">test</button>
         <span class="loading"><img src="{% static 'images/ajax-loader.gif' %}"  width="50px" height="50px" /></span>
         <ul  id="{{element.id}}" class="collapse">

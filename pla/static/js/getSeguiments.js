@@ -14,9 +14,7 @@ function explorar_errors(){
 function closeSeguiment(){
   $("#seguiment").hide();
 }
-function getSeguiment(){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
-
-  var pk = $(this).data("id");
+function getSeguiment(pk){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
   $.ajax({
     type:"GET",
     url:pk+"/getSeguimentsServei",
