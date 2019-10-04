@@ -41,8 +41,7 @@ $(document).ready(function(){
   closeSeguiment();
   explorar_errors();
 
-  $(".item .childs").click(function(e){
-
+  /*$(".item .childs").click(function(e){
     e.stopPropagation();
-  });//Aixo es produeix quan es clica un Item, obtenim el id del Item
+  });*///Aixo es produeix quan es clica un Item, obtenim el id del Item
 });

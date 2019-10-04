@@ -31,7 +31,7 @@ class Actiu(models.Model):
     estat = models.CharField(max_length = 25, choices = ESTAT_CHOICES, default = 'Operatiu')
     servei = models.ManyToManyField(Servei)
     ip = models.ManyToManyField(Ips)
-
+    url = models.CharField(max_length=200, null=True, blank=True)
 
     def __str__(self):
         return str(self.nomActiu)

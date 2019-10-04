@@ -12,12 +12,18 @@
         <ul class="collapse" id="{{element.id}}">
           {% for child in element.actiu_set.all %}
             <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
-               {%if child.estat == "Operatiu" %}
+              {% if child.url %}
+                <a href="{{child.url}}">
+              {% endif %}
+              {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
-                {% elif child.estat == "Inoperatiu" %}
+              {% elif child.estat == "Inoperatiu" %}
                 <span class="glyphicon glyphicon-remove" data-error=True />
-               {% endif %}
-             </li>
+              {% endif %}
+              {% if child.url %}
+                </a>
+              {% endif %}
+            </li>
           {% endfor%}
         </ul>
       </span>
@@ -33,13 +39,20 @@
         <span class="loading"><img src="{% static 'images/ajax-loader.gif' %}"  width="50px" height="50px" /></span>
         <ul id="{{element.id}}" class="collapse">
           {% for child in element.actiu_set.all %}
+            {% if child.url %}
+              <a href="{{child.url}}">
+            {% endif %}
             <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
+
               {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
               {% elif child.estat == "Inoperatiu" %}
                 <span class="glyphicon glyphicon-remove" data-error=True />
               {% endif %}
             </li>
+            {% if child.url %}
+              </a>
+            {% endif %}
           {% endfor%}
         </ul>
       </span>
@@ -55,6 +68,9 @@
         <span class="loading"><img src="{% static 'images/ajax-loader.gif' %}"  width="50px" height="50px" /></span>
         <ul  id="{{element.id}}" class="collapse">
           {% for child in element.actiu_set.all %}
+            {% if child.url %}
+              <a href="{{child.url}}">
+            {% endif %}
             <li class="childs" data-id={{child.id}} class="collapse"> {{child.nomActiu}}
               {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
@@ -62,6 +78,9 @@
                 <span class="glyphicon glyphicon-remove" data-error=True />
               {% endif %}
             </li>
+            {% if child.url %}
+              </a>
+            {% endif %}
           {% endfor%}
         </ul>
       </span>
