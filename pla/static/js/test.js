@@ -13,7 +13,7 @@ function clieckTest(pk){
 
 $.ajax({
   type:"GET",
-  url:pk+"/test",
+  url:"Placon/"+pk+"/test",
   data:$(this).data("id"),
   success:function(data){
     $('button').attr("disabled", false);

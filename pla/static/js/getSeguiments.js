@@ -17,7 +17,7 @@ function closeSeguiment(){
 function getSeguiment(pk){//Aixo es produeix quan es clica un Servei, obtenim el id del servei
   $.ajax({
     type:"GET",
-    url:pk+"/getSeguimentsServei",
+    url:"Placon/"+pk+"/getSeguimentsServei",
     data:$(this).data("id"),
     success:function(data){
       data = JSON.parse(data);
