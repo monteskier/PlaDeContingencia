@@ -56,9 +56,9 @@ $(document).ready(function(){
         console.log(array[i]);
         algo = clieckTest(array[i],true);
       }
-      location.reload();
     }
   });
+  setTimeout(location.reload(),300000);
   /*$(".item .childs").click(function(e){
     e.stopPropagation();
   });*///Aixo es produeix quan es clica un Item, obtenim el id del Item
