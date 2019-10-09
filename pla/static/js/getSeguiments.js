@@ -46,14 +46,17 @@ $(document).ready(function(){
   var array = [];
 
   $("ul").each(function(index){
-    array.push($(this).id);
+    array.push($(this).attr('data-ident'));
+
   });
   $("#automatic").change(function(){
     if ($("#automatic").is(':checked')){
       console.log("activat");
-      for(i=0;i<=array.length;i++){
-        clieckTest(array[i],true);
+      for(i=0;i<array.length;i++){
+        console.log(array[i]);
+        algo = clieckTest(array[i],true);
       }
+      location.reload();
     }
   });
   /*$(".item .childs").click(function(e){

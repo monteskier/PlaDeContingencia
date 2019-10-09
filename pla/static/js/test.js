@@ -14,7 +14,7 @@ function clieckTest(pk, auto=false){
 $.ajax({
   type:"GET",
   url:"Placon/"+pk+"/test",
-  data:$(this).data("id"),
+  data:pk,
   success:function(data){
     $('button').attr("disabled", false);
     $("#content").removeClass("load");
@@ -22,8 +22,12 @@ $.ajax({
     closeLoading(true);
     if(auto === false){
       alert("Operatius = "+data.Operatius+"\n"+"Inoperatius = "+data.Inoperatius);
+      location.reload();
     }
-    location.reload();
-  }
+
+  },
+  done:(function(res){
+    return 0;
+  }),
 });
 }
