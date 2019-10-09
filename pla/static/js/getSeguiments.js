@@ -35,12 +35,27 @@ function getSeguiment(pk){//Aixo es produeix quan es clica un Servei, obtenim el
     }
   });
 }
+function shootingstars(pk){
+  setTimeout(clieckTest(pk, true),60000);
+}
 
 $(document).ready(function(){
   closeLoading(true);
   closeSeguiment();
   explorar_errors();
+  var array = [];
 
+  $("ul").each(function(index){
+    array.push($(this).id);
+  });
+  $("#automatic").change(function(){
+    if ($("#automatic").is(':checked')){
+      console.log("activat");
+      for(i=0;i<=array.length;i++){
+        shootingstars(array[i]);
+      }
+    }
+  });
   /*$(".item .childs").click(function(e){
     e.stopPropagation();
   });*///Aixo es produeix quan es clica un Item, obtenim el id del Item

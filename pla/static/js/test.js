@@ -6,7 +6,7 @@ function closeLoading(bol){
     }
 }
 
-function clieckTest(pk){
+function clieckTest(pk, auto=false){
   closeLoading(false);
   $("#content").addClass("load");
   $('button').attr("disabled", true);
@@ -20,7 +20,9 @@ $.ajax({
     $("#content").removeClass("load");
     data = JSON.parse(data);
     closeLoading(true);
-    alert("Operatius = "+data.Operatius+"\n"+"Inoperatius = "+data.Inoperatius);
+    if(auto){
+      alert("Operatius = "+data.Operatius+"\n"+"Inoperatius = "+data.Inoperatius);
+    }
     location.reload();
   }
 });

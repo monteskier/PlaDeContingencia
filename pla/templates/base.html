@@ -11,14 +11,20 @@
 <html>
   <head>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>
-      Pla de Contingència Ajuntament de Sant Vicenç de Castellet
-    </title>
+    <title> Pla de Contingència Ajuntament de Sant Vicenç de Castellet</title>
   </head>
     <body>
-      <div id="content">
-        {% block content %}
-        {% endblock %}
+      <div id="main">
+        <div id="menubar">
+          <div class="opcions">
+            <label for="automatic">Automàtic:</label>
+            <input  name="automatic" id="automatic" type="checkbox"/>
+          </div>
+        </div>
+        <div id="content">
+          {% block content %}
+          {% endblock %}
+        </div>
       </div>
     </body>
     <script src="{% static 'js/jquery-3.3.1.js' %}"></script>

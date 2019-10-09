@@ -43,7 +43,6 @@
               <a href="{{child.url}}">
             {% endif %}
             <li class="childs" data-id={{child.id}}> {{child.nomActiu}}
-
               {%if child.estat == "Operatiu" %}
                 <span class="glyphicon glyphicon-ok" data-error=False />
               {% elif child.estat == "Inoperatiu" %}
