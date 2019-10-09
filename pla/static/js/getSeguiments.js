@@ -36,7 +36,7 @@ function getSeguiment(pk){//Aixo es produeix quan es clica un Servei, obtenim el
   });
 }
 function shootingstars(pk){
-  setTimeout(clieckTest(pk, true),60000);
+  /*setTimeout(clieckTest(pk, true),60000);*/
 }
 
 $(document).ready(function(){
@@ -52,7 +52,7 @@ $(document).ready(function(){
     if ($("#automatic").is(':checked')){
       console.log("activat");
       for(i=0;i<=array.length;i++){
-        shootingstars(array[i]);
+        clieckTest(array[i],true);
       }
     }
   });
