@@ -8,7 +8,7 @@ function closeLoading(bol){
 
 function clieckTest(pk, auto=false){
   closeLoading(false);
-  $("#content").addClass("load");
+  $(this).addClass("load");
   $('button').attr("disabled", true);
 
 $.ajax({
