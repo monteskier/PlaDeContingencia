@@ -20,7 +20,7 @@ $.ajax({
     $("#content").removeClass("load");
     data = JSON.parse(data);
     closeLoading(true);
-    if(auto){
+    if(auto === false){
       alert("Operatius = "+data.Operatius+"\n"+"Inoperatius = "+data.Inoperatius);
     }
     location.reload();
