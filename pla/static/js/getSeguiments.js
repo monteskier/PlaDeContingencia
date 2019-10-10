@@ -40,6 +40,7 @@ function shootingstars(pk){
 }
 
 $(document).ready(function(){
+  $('#automatic').prop('checked', true);
   closeLoading(true);
   closeSeguiment();
   explorar_errors();
@@ -49,16 +50,33 @@ $(document).ready(function(){
     array.push($(this).attr('data-ident'));
 
   });
+  if($("#automatic").is(':checked')){
+    renovarweb();
+  }
+
   $("#automatic").change(function(){
-    if ($("#automatic").is(':checked')){
-      console.log("activat");
-      for(i=0;i<array.length;i++){
-        console.log(array[i]);
-        algo = clieckTest(array[i],true);
-      }
-    }
+      renovarweb();
   });
-  setTimeout(location.reload(),300000);
+  function renovarweb(){
+      if ($("#automatic").is(':checked')){
+        console.log("activat");
+        var i = 0;
+        setInterval(function(){
+          if(i>=array.length || (!$("#automatic").is(':checked'))){
+            return false;
+          }else{
+            clieckTest(array[i],true);
+            i++;
+            console.log("evio = "+array[i]);
+          }
+        },30000);
+        if(i>=array.length){
+          location.reload();
+        }
+        /*setTimeout(location.reload(),300000);*/
+      }
+
+    }
   /*$(".item .childs").click(function(e){
     e.stopPropagation();
   });*///Aixo es produeix quan es clica un Item, obtenim el id del Item
