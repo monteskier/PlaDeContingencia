@@ -22,7 +22,7 @@ function clieckTest(pk, auto=false){
       closeLoading(true);
       if(auto === false){
         alert("Operatius = "+data.Operatius+"\n"+"Inoperatius = "+data.Inoperatius);
-        console.log("fet ajax");
+        location.reload();
       }
 
     },

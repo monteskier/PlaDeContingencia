@@ -71,7 +71,7 @@ $(document).ready(function(){
           }
         },30000);
         if(i>=array.length){
-          location.reload();
+          setTimeout(location.reload(),3600000);
         }
         /*setTimeout(location.reload(),300000);*/
       }
