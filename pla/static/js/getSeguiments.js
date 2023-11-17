@@ -40,7 +40,7 @@ function shootingstars(pk){
 }
 
 $(document).ready(function(){
-  $('#automatic').prop('checked', true);
+  $('#automatic').prop('checked', false);
   closeLoading(true);
   closeSeguiment();
   explorar_errors();
