@@ -51,11 +51,11 @@ $(document).ready(function(){
 
   });
   if($("#automatic").is(':checked')){
-    renovarweb();
+    //renovarweb();
   }
 
   $("#automatic").change(function(){
-      renovarweb();
+      //renovarweb();
   });
   function renovarweb(){
       if ($("#automatic").is(':checked')){
